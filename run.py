@@ -10,8 +10,8 @@ EMPTY_CELL = '~'
 class BattleshipGame:
 
     """ Main battleships board class. Sets the board size, the number of ships, the players name 
-    and the board type ( player board or the computer) Has methods for adding ships, hits, misses and printing
-    the board when the game is over """
+    and the board type ( player board or the computer) Has methods for adding ships, hits, misses and printing the scores,
+    for each round as well as printing the board when the game is over """
 
     
     def __init__(self):
@@ -25,6 +25,12 @@ class BattleshipGame:
         self.player_score = 0
         self.computer_score = 0 
         self.game_over = False 
+
+        def initialize_board(self):
+            """Creates an empty grid based on size set by user."""
+            return [[EMPTY_CELL for _ in range(self.grid_size)] for _ in range(self.grid_size)]
+
+        
 
 # You can delete these comments, but do not change the name of this file
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
