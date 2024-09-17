@@ -29,7 +29,30 @@ class BattleshipGame:
         def initialize_board(self):
             """Creates an empty grid based on size set by user."""
             return [[EMPTY_CELL for _ in range(self.grid_size)] for _ in range(self.grid_size)]
+        
+        def print_board(self, board, hide_ships=False):
+            """Prints the game board."""
+            for row in board:
+                if hide_ships:
+                    print(''.join([EMPTY_CELL if cell == SHIP_CELL else cell for cell in row]))
+                else:
+                    print('  '.join(row))
+                print()
 
+        def place_computer_ships(self):
+            """This places ships randomly on the computer's board (playable grid)"""
+            for _ in
+         range(self.num_ships):
+                 while True:
+                    x = random.randint(0,self.grid_size - 1)
+                    y = random.randint(0,self.grid_size - 1)
+                    if 
+                    self.computer_board[x][y] == EMPTY_CELL:
+
+                    self.computer_board[x][y] = SHIP_CELL break
+
+
+                
         
 
 # You can delete these comments, but do not change the name of this file
