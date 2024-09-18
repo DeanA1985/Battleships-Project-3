@@ -41,16 +41,30 @@ class BattleshipGame:
 
         def place_computer_ships(self):
             """This places ships randomly on the computer's board (playable grid)"""
-            for _ in
-         range(self.num_ships):
+            for _ in range(self.num_ships):
                  while True:
                     x = random.randint(0,self.grid_size - 1)
                     y = random.randint(0,self.grid_size - 1)
                     if 
                     self.computer_board[x][y] == EMPTY_CELL:
 
-                    self.computer_board[x][y] = SHIP_CELL break
+                    self.computer_board[x][y] = SHIP_CELL 
+                    break
 
+                def get_user_input(self):
+                    """ Gets the row and column guess from the player with input validation."""
+                    while True:
+                        try:
+                            x = int(input(f"Enter row (0 to {self.grid_size - 1})"))
+                            y = int(input(f"Enter column (0 to {self.grid_size - 1})"))
+                            if 0 <= x <
+                            self.grid_size and 0 <= y <
+                            self.grid_size:
+                            return x, y 
+                            else:
+                                print ("These coordinates are off the grid. Please try again")
+                                except ValueError:
+                                    print("Please enter valid integers")
 
                 
         
