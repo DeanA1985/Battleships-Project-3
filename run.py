@@ -94,6 +94,37 @@ class BattleshipGame:
                             print(f"\n{self.player_name}'s
                             board:")
 
+                            self.print_board(self.player_board)
+
+                                 print("\nComputer's board (your progress):")
+                            
+                            self.print_board(self.computer_board, hide_ships=True)
+
+                            x, y = self.get_user_input()
+
+                            if self.make_guess(x, y):
+                                self.player_score += 1
+                                else:
+                                    self.player_score -= 1
+
+                                    # Shows the updated player board
+                                    print(f"\n{self.player_name}'s
+                                    updated board:")
+
+                                    self.print_board(self.player_board)
+
+                                    def ask_play_again(self):
+                                        """Ask the player if they would like to play again"""
+                                    while True:
+                                        answer = input("Woulld you like to play another game? (yes/no):").lower()
+                                        if answer == 'yes':
+                                            return True
+                                            elif answer == 'no':
+                                                return False
+                                            else:
+                                                print("Please enter 'yes' or 'no' .")
+
+                                                    
                                                 
 
 
