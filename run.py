@@ -163,6 +163,27 @@ class BattleshipGame:
                                                                 print("\nComputer's board (Ships revealed):")
 
                                                             self.print_board(self.computer_board)
+
+                                                            #Play Game 
+                                                            def play(self):
+                                                                """ Main Game Loop."""
+                                                                print(f"Welcome, {self.player_name}! Let's start the game!")
+                                                                self.game_over = False
+
+                                                                while not self.game_over:
+                                                                    self.play_round()
+
+                                                                    if
+                                                                self.check_win_condition():
+
+                                                                print(f"Congratulations, {self.player_name}! You sunk all the ships!") 
+                                                                self.game_over = True
+                                                                self.computer_score += self.num_ships
+
+                                                                if self.game_over:
+                                                                    print(f"Your final score: {self.player_score} | Computer score: {self.computer_score}")
+                                                                    
+                                                                       
                                                 
 
 
