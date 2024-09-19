@@ -43,12 +43,14 @@ class BattleshipGame:
             """This places ships randomly on the computer's board (playable grid)"""
             for _ in range(self.num_ships):
                  while True:
-                    x = random.randint(0,self.grid_size - 1)
-                    y = random.randint(0,self.grid_size - 1)
+                    x = random.randint(0,
+                    self.grid_size - 1)
+                    y = random.randint(0,
+                    self.grid_size - 1)
                     if 
-                    self.computer_board[x][y] == EMPTY_CELL:
+             self.computer_board[x][y] == EMPTY_CELL:
 
-                    self.computer_board[x][y] = SHIP_CELL 
+            self.computer_board[x][y] = SHIP_CELL 
                     break
 
                 def get_user_input(self):
@@ -64,7 +66,26 @@ class BattleshipGame:
                             else:
                                 print ("These coordinates are off the grid. Please try again")
                                 except ValueError:
-                                    print("Please enter valid integers")
+                                    print("Please enter valid integers.")
+
+                            def make_guess(self, x, y):
+                                """ When the player makes a guess the result is updated on the board"""
+                                if (x, y) in self.hits or (x, y) in self.misses:
+                                    print("This spot has been guessed already!")
+                                    return False
+
+                                    if self.computer_board[x][y]== SHIP_CELL:
+                                        print("Hit!!!")
+                                        self.player_board[x][y] = HIT_CELL
+                                        self.hits.add((x, y))
+                                        return True
+                                    else:
+                                        print("Miss!!!")
+                                        self.player_board[x][y] = MISS_CELL
+                                        self.misses.add((x, y))
+                                        return False       
+
+
 
                 
         
