@@ -205,7 +205,32 @@ class BattleshipGame:
                                                             print("4. The game will show your hits as ('X') and your misses as ('O'). ")
                                                             print("5. The computer's board will show your progress as you play.")
                                                             print("6. The game ends when you sink all of the computers ships or you quit.")
-                                                            print("7. You can quit the game after each round by pressing 'n' .")                     
+                                                            print("7. You can quit the game after each round by pressing 'n' .")
+
+
+                                                            def main():
+                                                                """Main function to start the game."""
+                                                                print_game_instructions() 
+
+                                                                game = BattleshipGame()
+
+                                                                while True:
+                                                                    game.player_name =
+                                                                input("Please enter your name:  ")
+                                                                game.setup_game()
+                                                                game.play()
+
+                                                                if input("Press any key to continue or 'n' to quit: ").lower()
+                                                                == 'n':
+                                                                       print(f"Final Score: 
+                                                                {game.player_name}:
+                                                                {game.player_score} | Computer:
+                                                                {game.computer_score}")
+                                                                       print("Thanks for playing!")
+                                                                       break
+
+                                                                    if __name__ = "__main__":
+                                                                        main()              
                                                                                     
                                                     
                                                             
