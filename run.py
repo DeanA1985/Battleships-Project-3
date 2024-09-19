@@ -85,6 +85,17 @@ class BattleshipGame:
                                         self.misses.add((x, y))
                                         return False       
 
+                            def check_win_condition(self):
+                                """This function checks to see if all the ships have been hit."""
+                                return len(self.hits) == self.num_ships
+
+                            def play_round(self):
+                                """Play one round of the game."""
+                            print(f"\n{self.player_name}'s
+                            board:")
+
+                                                
+
 
 
                 
