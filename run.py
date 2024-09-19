@@ -182,8 +182,35 @@ class BattleshipGame:
 
                                                                 if self.game_over:
                                                                     print(f"Your final score: {self.player_score} | Computer score: {self.computer_score}")
-                                                                    
-                                                                       
+
+                                                                    #Shows the computer's board at the end of the game
+
+                                                                    self.show_computer_board()
+                                                                    if not
+                                                                    self.ask_play_again():
+                                                                                    print ("Thanks for playing Battleships! Goodbye!")
+                                                                                    break 
+                                                                                else:
+                                                                                    self.game_over = 
+                                                                                False
+                                                                                    self.setup_game()
+
+                                                            def print_game_instructions():
+                                                                """Prints the game instructions for the player."""
+                                                            print("Welcome to Battleships!")
+                                                            print("\nInstructions:")
+                                                            print("1. You will be playing on a customizable grid.")    
+                                                            print("2. You can choose how many ships to play with (within the grid size).")  
+                                                            print("3. Guess the location of the computer's ships by entering row and column values.")
+                                                            print("4. The game will show your hits as ('X') and your misses as ('O'). ")
+                                                            print("5. The computer's board will show your progress as you play.")
+                                                            print("6. The game ends when you sink all of the computers ships or you quit.")
+                                                            print("7. You can quit the game after each round by pressing 'n' .")                     
+                                                                                    
+                                                    
+                                                            
+
+
                                                 
 
 
