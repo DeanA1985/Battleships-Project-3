@@ -39,34 +39,28 @@ class BattleshipGame:
                     print('  '.join(row))
                 print()
 
-        def place_computer_ships(self):
+        def place_computer_ships(self): 
             """This places ships randomly on the computer's board (playable grid)"""
-            for _ in range(self.num_ships):
-                 while True:
-                    x = random.randint(0,
-                    self.grid_size - 1)
-                    y = random.randint(0,
-                    self.grid_size - 1)
-                    if 
-             self.computer_board[x][y] == EMPTY_CELL:
-
-            self.computer_board[x][y] = SHIP_CELL 
+        for _ in range(self.num_ships):
+            while True:
+                x = random.randint(0, self.grid_size - 1)
+                y = random.randint(0, self.grid_size - 1)
+                if self.computer_board[x][y] == EMPTY_CELL:
+                    self.computer_board[x][y] = SHIP_CELL 
                     break
 
                 def get_user_input(self):
                     """ Gets the row and column guess from the player with input validation."""
                     while True:
                         try:
-                            x = int(input(f"Enter row (0 to {self.grid_size - 1})"))
-                            y = int(input(f"Enter column (0 to {self.grid_size - 1})"))
-                            if 0 <= x <
-                            self.grid_size and 0 <= y <
-                            self.grid_size:
-                            return x, y 
+                            x = int(input(f"Enter row (0 to {self.grid_size - 1}): "))
+                            y = int(input(f"Enter column (0 to {self.grid_size - 1}): "))
+                            if 0 <= x < self.grid_size and 0 <= y < self.grid_size:
+                                return x, y 
                             else:
-                                print ("These coordinates are off the grid. Please try again")
-                                except ValueError:
-                                    print("Please enter valid integers.")
+                                print("These coordinates are off the grid. Please try again.")
+                        except ValueError:
+                            print("Please enter valid integers.")
 
                             def make_guess(self, x, y):
                                 """ When the player makes a guess the result is updated on the board"""
@@ -83,7 +77,7 @@ class BattleshipGame:
                                         print("Miss!!!")
                                         self.player_board[x][y] = MISS_CELL
                                         self.misses.add((x, y))
-                                        return False       
+                                        return False
 
                             def check_win_condition(self):
                                 """This function checks to see if all the ships have been hit."""
@@ -91,69 +85,58 @@ class BattleshipGame:
 
                             def play_round(self):
                                 """Play one round of the game."""
-                            print(f"\n{self.player_name}'s
-                            board:")
+                            print(f"\n{self.player_name}'s board:")
+
+                            self.print_board(self.computer_board, hide_ships=True)
+ 
+                            x, y = self.get_user_input()
+ 
+                            if self.make_guess(x, y):
+                                self.player_score += 1
+                            else:
+                                self.player_score -= 1
+ 
+                            # Shows the updated player board
+                            print(f"\n{self.player_name}'s updated board:")
 
                             self.print_board(self.player_board)
 
-                                 print("\nComputer's board (your progress):")
-                            
-                            self.print_board(self.computer_board, hide_ships=True)
-
-                            x, y = self.get_user_input()
-
-                            if self.make_guess(x, y):
-                                self.player_score += 1
-                                else:
-                                    self.player_score -= 1
-
-                                    # Shows the updated player board
-                                    print(f"\n{self.player_name}'s
-                                    updated board:")
-
-                                    self.print_board(self.player_board)
-
-                                    def ask_play_again(self):
+                            def ask_play_again(self):
                                         """Ask the player if they would like to play again"""
-                                    while True:
+                            while True:
                                         answer = input("Woulld you like to play another game? (yes/no):").lower()
                                         if answer == 'yes':
-                                            return True
-                                            elif answer == 'no':
+                                                return True
+                                        elif answer == 'no':
                                                 return False
-                                            else:
-                                                print("Please enter 'yes' or 'no' .")
-
-                                    def setup_game(self):
-                                        """Setup the game grid and number of ships"""
-                                    while True:
-                                        try:
-                                            self.grid_size =
-                                            int(input("Enter the grid size (5-10): "))
-                                            if 5 <=
-                                            self.grid_size <= 10:
-                                            break 
                                         else:
-                                            print("Grid size must be between 5 and 10.")
-                                            except ValueError:
+                                                print("Please enter 'yes' or 'no'.")
+
+                            def setup_game(self):
+                                        """Setup the game grid and number of ships"""
+                            while True:
+                                        try:
+                                            self.grid_size = int(input("Enter the grid size (5-10): "))
+                                            if 5 <= self.grid_size <= 10:
+                                               break
+                                            else:
+                                             print("Grid size must be between 5 and 10.")
+                                        except ValueError:
                                                 print("Please enter a valid integer.")
 
                                                 while True:
                                                     try:
                                                         self.num_ships = int(input(f"Enter the number of ships(1-{self.grid_size}): "))
-                                                        if 1 <=
-                                                        self.num_ships <= self.grid_size:
-                                                        break
-                                                    else:
-                                                        print(f"Number of ships must be between 1 and {self.grid_size}.")
-                                                        except ValueError:
+                                                        if 1 <= self.num_ships <= self.grid_size:
+                                                           break
+                                                        else:
+                                                             print(f"Number of ships must be between 1 and {self.grid_size}.")
+                                                    except ValueError:
                                                             print("Please enter a valid integer.")
 
                                                             # Intitalize the boards (grids) for the player and the computer
-                                                            self.player_board = 
-                                                            self.initialize_board()
-                                                            self.computer_board =
-                                                            self.initialize_board()
+                                                            self.player_board = self.initialize_board()
+                                                            self.computer_board = self.initialize_board()
 
                                                             #Place ships on the computer's board
                                                             self.place_computer_ships()
@@ -173,8 +156,7 @@ class BattleshipGame:
                                                                 while not self.game_over:
                                                                     self.play_round()
 
-                                                                    if
-                                                                self.check_win_condition():
+                                                            if self.check_win_condition():
 
                                                                 print(f"Congratulations, {self.player_name}! You sunk all the ships!") 
                                                                 self.game_over = True
@@ -186,14 +168,12 @@ class BattleshipGame:
                                                                     #Shows the computer's board at the end of the game
 
                                                                     self.show_computer_board()
-                                                                    if not
-                                                                    self.ask_play_again():
+                                                                    if not self.ask_play_again():
                                                                                     print ("Thanks for playing Battleships! Goodbye!")
-                                                                                    break 
-                                                                                else:
-                                                                                    self.game_over = 
-                                                                                False
-                                                                                    self.setup_game()
+                                                                    break 
+                                                                else:
+                                                                    self.game_over = False
+                                                                    self.setup_game()
 
                                                             def print_game_instructions():
                                                                 """Prints the game instructions for the player."""
@@ -215,22 +195,17 @@ class BattleshipGame:
                                                                 game = BattleshipGame()
 
                                                                 while True:
-                                                                    game.player_name =
-                                                                input("Please enter your name:  ")
+                                                                    game.player_name = input("Please enter your name:  ")
                                                                 game.setup_game()
                                                                 game.play()
 
-                                                                if input("Press any key to continue or 'n' to quit: ").lower()
-                                                                == 'n':
-                                                                       print(f"Final Score: 
-                                                                {game.player_name}:
-                                                                {game.player_score} | Computer:
-                                                                {game.computer_score}")
-                                                                       print("Thanks for playing!")
-                                                                       break
+                                                                if input("Press any key to continue or 'n' to quit: ").lower() == 'n': 
+                                                                  print(f"Final Score: {game.player_name}: {game.player_score} | Computer: {game.computer_score}")
+                                                                  print("Thanks for playing!")
+                                                                  break
 
-                                                                    if __name__ = "__main__":
-                                                                        main()              
+                                                                if __name__ == "__main__":
+                                                                  main()              
                                                                                     
                                                     
                                                             
