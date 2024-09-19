@@ -147,9 +147,22 @@ class BattleshipGame:
                                                     else:
                                                         print(f"Number of ships must be between 1 and {self.grid_size}.")
                                                         except ValueError:
-                                                            print("Please enter a valid integer")          
+                                                            print("Please enter a valid integer.")
 
-                                                    
+                                                            # Intitalize the boards (grids) for the player and the computer
+                                                            self.player_board = 
+                                                            self.initialize_board()
+                                                            self.computer_board =
+                                                            self.initialize_board()
+
+                                                            #Place ships on the computer's board
+                                                            self.place_computer_ships()
+
+                                                            def show_computer_board(self):
+                                                                """Show the computer's board with ships visible."""
+                                                                print("\nComputer's board (Ships revealed):")
+
+                                                            self.print_board(self.computer_board)
                                                 
 
 
