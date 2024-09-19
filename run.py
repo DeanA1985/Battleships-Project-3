@@ -124,6 +124,31 @@ class BattleshipGame:
                                             else:
                                                 print("Please enter 'yes' or 'no' .")
 
+                                    def setup_game(self):
+                                        """Setup the game grid and number of ships"""
+                                    while True:
+                                        try:
+                                            self.grid_size =
+                                            int(input("Enter the grid size (5-10): "))
+                                            if 5 <=
+                                            self.grid_size <= 10:
+                                            break 
+                                        else:
+                                            print("Grid size must be between 5 and 10.")
+                                            except ValueError:
+                                                print("Please enter a valid integer.")
+
+                                                while True:
+                                                    try:
+                                                        self.num_ships = int(input(f"Enter the number of ships(1-{self.grid_size}): "))
+                                                        if 1 <=
+                                                        self.num_ships <= self.grid_size:
+                                                        break
+                                                    else:
+                                                        print(f"Number of ships must be between 1 and {self.grid_size}.")
+                                                        except ValueError:
+                                                            print("Please enter a valid integer")          
+
                                                     
                                                 
 
