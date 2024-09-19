@@ -202,7 +202,9 @@ class BattleshipGame:
                                                                 if input("Press any key to continue or 'n' to quit: ").lower() == 'n': 
                                                                   print(f"Final Score: {game.player_name}: {game.player_score} | Computer: {game.computer_score}")
                                                                   print("Thanks for playing!")
-                                                                  break
+                                                                else:
+                                                                  # Continue with the game logic here
+                                                                 pass
 
                                                                 if __name__ == "__main__":
                                                                   main()              
