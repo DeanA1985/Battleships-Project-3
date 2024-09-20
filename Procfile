@@ -1,2 +1,2 @@
-web: python server.py --port=$PORT
+web: python run.py
 web: node index.js

@@ -1,3 +1,4 @@
+import os
 import random
  
 # Constants for Battleships Board Representation
@@ -20,6 +21,8 @@ class BattleshipGame:
     """Creates an empty grid"""      
     def initialize_board(self):
         return [[EMPTY_CELL for _ in range(self.grid_size)] for _ in range(self.grid_size)]
+    #The code constructs a grid using a nested list comprehension: The outer list creates the rows. The inner list creates the columns
+    #filling each cell with the value of EMPTY_CELL.
     
     """Prints the game board"""
     def print_board(self, board, hide_ships=False):
