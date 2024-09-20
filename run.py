@@ -36,7 +36,8 @@ class BattleshipGame:
                     self.computer_board[x][y] = SHIP_CELL 
                     break
     
-    """Gets row and column guess from the player using input validation methods"""
+    """Gets row and column guess from the player using input validation methods
+    allows player the quit the game at any point"""
     def get_user_input(self):
         while True:
             try:
