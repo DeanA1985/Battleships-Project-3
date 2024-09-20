@@ -29,29 +29,23 @@ class BattleshipGame:
     
     """Randomly places ships on the computers board"""
     def place_computer_ships(self): 
-        for _ in range(self.num_ships):
-            while True:
-                x, y = random.randint(0, self.grid_size - 1), random.randint(0, self.grid_size - 1)
-                if self.computer_board[x][y] == EMPTY_CELL:
-                    self.computer_board[x][y] = SHIP_CELL 
-                    break
+        ships_placed = 0
+        while ships_placed < self.num_ships:
+        #This generates random coordinates for ship placement
+         x = random.randint(0, self.grid_size -1)
+         y = random.randint(0, self.grid_size -1)
+         
+         #Ensure the spot is emopty before placing a ship
+         if self.computer_board[x][y] == EMPTY_CELL: self.computer_board[x][y] = SHIP_CELL
+         ships_placed += 1 #Increment the number of ships placed
+        
     
-    """Gets row and column guess from the player using input validation methods
-    allows player the quit the game at any point"""
+    """Gets row and column guess from the player using input validation methods"""
     def get_user_input(self):
         while True:
             try:
-                user_input = input(f"Enter row (0 to {self.grid_size -1}) or 'q' to quit:").lower ()
-                if user_input == 'q': print("You have chosen to quit the game.")
-                exit() # Exits the game immediately 
-                x = int(user_input)
-                
-                user_input = input(f"Enter column (0 to {self.grid_size -1}) or 'q' to quit:").lower()
-                
-                if user_input == 'q': print("You have chosen to quit the game.")
-                exit() #Exits the game immediately 
-                y = int(user_input)
-                
+                x = int(input(f"Row (0-{self.grid_size - 1}): "))
+                y = int(input(f"Column (0-{self.grid_size - 1}): "))
                 if 0 <= x < self.grid_size and 0 <= y < self.grid_size: 
                     return x, y 
                 print("Coordinates are off the grid. Try Again.")
