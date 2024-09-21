@@ -23,8 +23,8 @@ class BattleshipGame:
 
     def initialize_board(self):
         return [
-            [EMPTY_CELL for _ in range(self.grid_size)] for _ in range(
-              self.grid_size)
+            [EMPTY_CELL for _ in range(self.grid_size)] for _ in range
+            (self.grid_size)
         ]
 
     """Prints the game board"""
@@ -34,8 +34,8 @@ class BattleshipGame:
             print(
                 " ".join(
                     [
-                        EMPTY_CELL if cell == SHIP_CELL and hide_ships else
-                        cell
+                        EMPTY_CELL if cell == SHIP_CELL and hide_ships
+                        else cell
                         for cell in row
                     ]
                 )
@@ -103,8 +103,7 @@ class BattleshipGame:
 
     def setup_game(self):
         self.grid_size = int(input("Enter the grid size (5-10): "))
-        self.num_ships = int
-        (input(f"Enter number of ships (1- {self.grid_size}): "))
+        self.num_ships = int(input(f"Enter number of ships (1- {self.grid_size}): "))
         """Initialize boards"""
         self.player_board = self.initialize_board()
         self.computer_board = self.initialize_board()
@@ -125,8 +124,10 @@ def print_game_instructions():
     print("Welcome to Battleships!\n")
     print("Instructions:")
     print("1. Play on a custom grid")
-    print("2. Guess the location of the "
-          "computer's ships by entering row / column values.")
+    print(
+        "2. Guess the location of the "
+        "computer's ships by entering row/column values."
+    )
     print("3. Hits ('X'), Misses ('O'). Sink all ships to win.\n")
 
 
