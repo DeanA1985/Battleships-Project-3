@@ -19,7 +19,9 @@ class BattleshipGame:
         self.hits, self.misses = set(), set()
         self.player_score = 0
 
-    """Creates an empty grid"""
+    """Creates an empty grid. The method relies on two attributes:
+    self.grid_size, which creates the dimensions of the grid, and
+    EMPTY_CELL, which gives the value of each cell on same grid"""
 
     def initialize_board(self):
         return [
@@ -42,7 +44,9 @@ class BattleshipGame:
             )
         print()
 
-    """Randomly places ships on the computers board"""
+    """Randomly places ships on the computers board, using a while loop
+    to randomly generates coordinates until the required number of ships set
+    by self.num_ships is met it places them within the bounds of the board"""
 
     def place_computer_ships(self):
         ships_placed = 0
@@ -89,7 +93,10 @@ class BattleshipGame:
 
         return True
 
-    """Play one round of the game"""
+    """Play one round of the game. The method includes: Printing the player's
+    board.Printing the computer's board with the ships hidden. Getting user
+    input for the coordinates of the guess. Making a guess based on the
+    provided coordinates x & y row and column."""
 
     def play_round(self):
         print(f"\n{self.player_name}'s board:")
@@ -99,7 +106,9 @@ class BattleshipGame:
         x, y = self.get_user_input()
         self.make_guess(x, y)
 
-    """Setup the game grid and number of ships"""
+    """Setup_game prompts the user to input the grid size and the number
+    of ships, initializes two game boards (one for the player and one for
+    the computer), and places ships on the computer's board"""
 
     def setup_game(self):
         self.grid_size = int(input("Enter the grid size (5-10): "))
@@ -109,7 +118,7 @@ class BattleshipGame:
         self.computer_board = self.initialize_board()
         self.place_computer_ships()
 
-    """Main game loop"""
+    """Main game loops until all the ships are sunk"""
 
     def play(self):
         while len(self.hits) < self.num_ships:
@@ -117,7 +126,7 @@ class BattleshipGame:
         print(f"Well Done {self.player_name}, you sunk all the ships!")
 
 
-"""Prints the game instruction"""
+"""Prints the games instructions"""
 
 
 def print_game_instructions():
