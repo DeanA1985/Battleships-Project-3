@@ -167,12 +167,29 @@ class BattleshipGame:
 
     """Setup_game prompts the user to input the grid size and the number
     of ships, initializes two game boards (one for the player and one for
-    the computer), and places ships on the computer and players board"""
+    the computer), and places ships on the computer and players board
+    it also has grid set up validation and validates the number of ships
+    to the size of the grid"""
 
     def setup_game(self):
-        self.grid_size = int(input("Enter the grid size (5-10): "))
-        self.num_ships = int(input(f"Enter number of ships (1- {self.grid_size}): "))
-        """Initialize boards"""
+        while True:
+            try:
+                self.grid_size = int(input("Enter the grid size (5-10): "))
+                if 5 <= self.grid_size <= 10:
+                    break
+                print("Grid size must be between 5 and 10.")
+            except ValueError:
+                print("Please enter a valid integer.")
+
+        while True:
+            try:
+                self.num_ships = int(input(f"Enter the number of ships (1- {self.grid_size}): "))
+                if 1 <= self.num_ships <= self.grid_size:
+                    break
+                print(f"Number of ships must be between 1 and {self.grid_size}.")
+            except ValueError:
+                print("Please enter a valid integer.")
+
         self.player_board = self.initialize_board()
         self.computer_board = self.initialize_board()
         self.place_computer_ships()
@@ -214,4 +231,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    
